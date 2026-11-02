@@ -1,0 +1,88 @@
+ADRIANNI MACIEL — FISIOTERAPIA & ESTÉTICA
+=========================================
+
+SITE COMPLETO: HTML + CSS + JavaScript + imagens + 3 vídeos.
+Pode ser publicado gratuitamente no GitHub Pages ou no Netlify.
+
+1. COMO ABRIR O SITE
+   Clique duas vezes em "index.html" para visualizar.
+   Para testar os envios de e-mail, publique online ou use um servidor local.
+
+2. CONFIGURAR WHATSAPP E E-MAIL (OBRIGATÓRIO ANTES DE PUBLICAR)
+   Abra: js/config.js
+   Troque os campos vazios:
+     whatsapp: '5587999999999',   (EXEMPLO — use o número real)
+     email: 'seuemail@exemplo.com', (EXEMPLO — use o e-mail real)
+   Se quiser, informe endereco e instagram.
+   Não coloque WhatsApp ou e-mail inventados.
+
+3. COMO FUNCIONA O AGENDAMENTO
+   - O cliente preenche nome, WhatsApp, procedimento, data e hora desejados.
+   - O botão abre o WhatsApp com a mensagem PRONTA: o cliente toca em Enviar.
+   - Se você configurar o e-mail, o site também tenta enviar os dados por
+     FormSubmit automaticamente (opção usaFormSubmit: true).
+   - É uma SOLICITAÇÃO. Não bloqueia automaticamente horários, não consulta
+     uma agenda central e não confirma a reserva.
+   - O cliente precisa receber confirmação de horário da equipe.
+   - Sem WhatsApp/e-mail configurados, o formulário mostra prévia e opção
+     de copiar o pedido para testar, sem enviá-lo a ninguém.
+
+4. COMO ATIVAR RECEBIMENTO POR E-MAIL (FORM SUBMIT)
+   - Configure seu e-mail real em js/config.js.
+   - Publique o site e faça um envio de teste. O FormSubmit envia um e-mail de
+     ativação para o endereço configurado. CONFIRME o e-mail de ativação.
+   - Depois faça outro teste e confira caixa de entrada/spam.
+   - O serviço é de terceiros: https://formsubmit.co/ (sujeito às regras do serviço).
+   - Em js/config.js, `usaFormSubmit: false` troca o envio automático pela
+     abertura do aplicativo de e-mail do cliente (mailto).
+   - Sem integração com servidor/agenda, o site não garante entrega de e-mails,
+     proteção avançada contra spam ou disponibilidade em tempo real.
+
+5. COMO ALTERAR FOTOS E VÍDEOS
+   As imagens ficam em: assets/img/
+   Os vídeos ficam em: assets/video/
+   FOTO PRINCIPAL: assets/img/adrianni-retrato.jpg
+   FOTO SOBRE MIM: assets/img/adrianni-sobre.jpg
+   FOTO MENTORIA: assets/img/adrianni-trabalho.jpg
+   ANTES E DEPOIS: assets/img/melasma-frontal.jpg,
+                   assets/img/melasma-lateral-esquerda.jpg,
+                   assets/img/melasma-lateral-direita.jpg
+   VÍDEOS:         assets/video/acolhimento.mp4,
+                   assets/video/massagem-bali.mp4,
+                   assets/video/massagem.mp4
+   CAPAS:          assets/img/capa-*.jpg
+   Se trocar imagens, mantenha os nomes ou edite os caminhos no index.html.
+   A galeria ampliada usa os mesmos nomes também em js/site.js.
+
+6. COMO ALTERAR TRATAMENTOS E TEXTOS
+   Abra index.html.
+   Procure os comentários numerados de 01 a 07.
+   Para acrescentar serviços, copie um bloco <article class="treatment-card">.
+   Para criar nova opção no agendamento, adicione outro <option> no <select>
+   de id="service".
+   Textos da profissional, mentoria e FAQs também estão em index.html.
+   Para mudar cores, altere as variáveis no começo de css/style.css.
+
+7. BOAS PRÁTICAS ANTES DE PUBLICAR
+   - Confirme como a profissional deseja apresentar nome e titulação.
+     Foram enviados materiais com 'Maciel' e arquivos nomeados 'Marciel'.
+     O site usa 'Adrianni Maciel', que consta nos textos das fotos e na bio.
+   - Confirme se a profissional realiza e está habilitada para todos os
+     serviços anunciados, incluindo fisioterapia e estética facial.
+   - Obtenha autorização adequada para uso das imagens de pacientes, vídeos
+     e depoimentos (se acrescentados no futuro).
+   - Confirme eventual endereço, horários de atendimento e valores antes
+     de incluí-los. Não inventamos essas informações.
+   - O formulário contém consentimento de contato, mas a operação real deve
+     ter aviso de privacidade conforme sua necessidade e regras aplicáveis.
+   - Evite receber informações de saúde sensíveis pelo formulário simples.
+   - Para reservas com HORÁRIOS REALMENTE DISPONÍVEIS, sem agendamentos
+     duplicados, é preciso integrar uma agenda e um serviço de backend.
+
+8. PUBLICAR NO GITHUB PAGES
+   - Crie um repositório no GitHub.
+   - Envie TODOS os arquivos e pastas da pasta Adrianni-Maciel-Landing.
+   - Repositório → Settings → Pages → Deploy from a branch → main / (root).
+   - Verifique a URL fornecida pelo GitHub e teste formulário e vídeos.
+
+DESENVOLVIDO COMO PROTÓTIPO EDITÁVEL — configure contatos e revise antes de publicar.
