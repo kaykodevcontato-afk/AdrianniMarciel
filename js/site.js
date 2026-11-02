@@ -128,12 +128,32 @@ $$('[data-service]').forEach(link => link.addEventListener('click', () => {
 // Atualiza os links de contato sem exibir números fictícios.
 const ownerWhatsapp = cleanDigits(CONFIG.whatsapp);
 const ownerEmail = String(CONFIG.email || '').trim();
+const defaultWhatsappText = encodeURIComponent('Olá! Gostaria de informações sobre os atendimentos da Adrianni Maciel.');
 if (ownerWhatsapp.length >= 12) {
-  $('#footerWhatsapp').href = `https://wa.me/${ownerWhatsapp}?text=${encodeURIComponent('Olá! Gostaria de informações sobre os atendimentos da Adrianni Maciel.')}`;
+  const waLink = `https://wa.me/${ownerWhatsapp}?text=${defaultWhatsappText}`;
+  $('#footerWhatsapp').href = waLink;
   $('#footerWhatsapp').target = '_blank';
   $('#footerWhatsapp').rel = 'noopener noreferrer';
+  const floatContact = $('#floatContact');
+  if (floatContact) {
+    floatContact.href = waLink;
+    floatContact.target = '_blank';
+    floatContact.rel = 'noopener noreferrer';
+    floatContact.setAttribute('aria-label', 'Falar no WhatsApp');
+  }
 }
-if (ownerEmail.includes('@')) $('#footerEmail').href = `mailto:${encodeURIComponent(ownerEmail)}?subject=${encodeURIComponent('Informações sobre atendimento')}`;
+const footerInstagram = $('#footerInstagram');
+if (footerInstagram && String(CONFIG.instagram || '').trim()) {
+  footerInstagram.href = String(CONFIG.instagram).trim();
+  footerInstagram.target = '_blank';
+  footerInstagram.rel = 'noopener noreferrer';
+}
+if (ownerEmail.includes('@')) {
+  $('#footerEmail').href = `mailto:${encodeURIComponent(ownerEmail)}?subject=${encodeURIComponent('Informações sobre atendimento')}`;
+} else {
+  const emailLink = $('#footerEmail');
+  if (emailLink) emailLink.style.display = 'none';
+}
 if (CONFIG.endereco) $('#footerLocation').textContent = CONFIG.endereco;
 $('#year').textContent = String(new Date().getFullYear());
 
