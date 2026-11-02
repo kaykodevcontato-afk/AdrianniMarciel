@@ -307,3 +307,20 @@ form.addEventListener('submit', async event => {
     showCopyFallback(message, 'Não foi possível confirmar o envio do e-mail. Confira sua conexão e a configuração do FormSubmit, ou copie os dados para tentar novamente.');
   }
 });
+
+// 6. O botão flutuante não deve cobrir o crédito do desenvolvedor
+// nem os links de contato quando a visitante chega ao rodapé.
+const footerForFloatingButton = $('.site-footer');
+const floatingBookingButton = $('#floatContact');
+if (footerForFloatingButton && floatingBookingButton) {
+  const updateFloatingButton = () => {
+    const footerRect = footerForFloatingButton.getBoundingClientRect();
+    const footerOnScreen = footerRect.top < window.innerHeight && footerRect.bottom > 0;
+    floatingBookingButton.classList.toggle('is-over-footer', footerOnScreen);
+    // Impede navegação por teclado para um botão que esteja oculto.
+    floatingBookingButton.tabIndex = footerOnScreen ? -1 : 0;
+  };
+  window.addEventListener('scroll', updateFloatingButton, {passive:true});
+  window.addEventListener('resize', updateFloatingButton, {passive:true});
+  updateFloatingButton();
+}
